@@ -82,7 +82,21 @@
     .trust article:nth-child(3) .benefit-marker { background:var(--yellow); }
     .trust strong { display:block; margin-bottom:7px; font-size:18px; }
     .trust p { margin:0; color:#637084; font-size:14px; line-height:1.55; }
-    @media (max-width:900px) { header{grid-template-columns:1fr auto;} nav,.account-link { display:none; } .mobile-menu-toggle{display:block;} .contact-strip { align-items:center; flex-direction:column; text-align:center; padding-top:12px; padding-bottom:12px; } .contact-links { width:100%; align-items:center; justify-content:center; flex-direction:row; flex-wrap:nowrap; gap:12px; font-size:12px; } main{padding:34px 24px 42px;} .hero { grid-template-columns:1fr; } .deal{min-height:610px;padding:32px;} .price small{display:block;margin-top:6px;white-space:normal;} .vat-label{display:block;margin-top:2px;} .deal .terms{max-width:100%;} .vehicle-image{bottom:-28px;width:94%;transform:translateX(-45%);} .search{padding:26px;} .form-row{grid-template-columns:1fr;gap:0;} h1{font-size:39px;} .benefits{padding:28px;} .benefits-head h2{white-space:normal;} .trust{grid-template-columns:1fr;gap:22px;} .trust article{padding:0 0 22px;border-right:0!important;border-bottom:1px solid #dce3e9;} .trust article:last-child{padding-bottom:0;border-bottom:0;} }
+    .site-footer { background:#101d31; color:#dce6ef; border-top:4px solid var(--pink); font-family:Arial,sans-serif; font-size:14px; font-weight:normal; }
+    .footer-content { max-width:1440px; margin:auto; padding:46px 5vw 28px; }
+    .footer-grid { display:grid; grid-template-columns:1.15fr .85fr 1.25fr; gap:56px; }
+    .footer-section { display:block; min-width:0; font-size:14px; font-weight:normal; }
+    .footer-section h2 { margin:0 0 19px; color:#fff; font-family:"Trebuchet MS",Arial,sans-serif; font-size:20px; line-height:1.2; font-weight:700; }
+    .footer-section address { font-style:normal; }
+    .footer-list { display:grid; gap:11px; margin:0; padding:0; list-style:none; }
+    .site-footer .footer-list a { position:static; display:inline; padding:0; color:#c5d1dc; text-decoration:none; font-size:14px; font-weight:normal; line-height:1.5; transition:color .18s ease; }
+    .footer-list a:after { display:none; }
+    .footer-list a:hover, .footer-list a:active { color:var(--yellow); }
+    .footer-list a:focus-visible { color:var(--yellow); outline:2px solid var(--yellow); outline-offset:4px; border-radius:2px; }
+    .footer-hours { color:#9fadc0; font-size:14px; font-weight:normal; }
+    .copyright-strip { padding:13px 5vw; border-top:1px solid rgba(255,255,255,.12); background:#0a1424; color:#9fadc0; text-align:center; font-size:12px; font-weight:normal; }
+    @media (max-width:900px) { header{grid-template-columns:1fr auto;} nav,.account-link { display:none; } .mobile-menu-toggle{display:block;} .contact-strip { align-items:center; flex-direction:column; text-align:center; padding-top:12px; padding-bottom:12px; } .contact-links { width:100%; align-items:center; justify-content:center; flex-direction:row; flex-wrap:nowrap; gap:12px; font-size:12px; } main{padding:34px 24px 42px;} .hero { grid-template-columns:1fr; } .deal{min-height:610px;padding:32px;} .price small{display:block;margin-top:6px;white-space:normal;} .vat-label{display:block;margin-top:2px;} .deal .terms{max-width:100%;} .vehicle-image{bottom:-28px;width:94%;transform:translateX(-45%);} .search{padding:26px;} .form-row{grid-template-columns:1fr;gap:0;} h1{font-size:39px;} .benefits{padding:28px;} .benefits-head h2{white-space:normal;} .trust{grid-template-columns:1fr;gap:22px;} .trust article{padding:0 0 22px;border-right:0!important;border-bottom:1px solid #dce3e9;} .trust article:last-child{padding-bottom:0;border-bottom:0;} .footer-grid{grid-template-columns:1fr 1fr;gap:36px 48px;} .footer-section:first-child{grid-column:1/-1;} }
+    @media (max-width:620px) { .footer-content{padding:38px 24px 26px;} .footer-grid{grid-template-columns:1fr;gap:32px;} .footer-section:first-child{grid-column:auto;} }
     @media (max-width:420px) { .contact-links{gap:8px;font-size:11px;} }
   </style>
 </head>
@@ -163,6 +177,42 @@
       </div>
     </section>
   </main>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <section class="footer-section" aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title">Contact Us</h2>
+          <address>
+            <ul class="footer-list">
+              <li><a href="tel:01914609444">Call 0191 460 9444</a></li>
+              <li><a href="mailto:sales@lingscars.com">sales@lingscars.com</a></li>
+              <li><a href="https://wa.me/447457406295">Chat on WhatsApp</a></li>
+              <li class="footer-hours">Mon - Fri, 9:00 AM - 5:00 PM</li>
+            </ul>
+          </address>
+        </section>
+        <nav class="footer-section" aria-labelledby="footer-links-title">
+          <h2 id="footer-links-title">Quick Links</h2>
+          <ul class="footer-list">
+            <li><a href="#vehicles">Vehicles</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="https://www.lingscars.com/faq">Frequently Asked Questions</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-section" aria-labelledby="footer-legal-title">
+          <h2 id="footer-legal-title">Legal &amp; Compliance</h2>
+          <ul class="footer-list">
+            <li><a href="https://www.lingscars.com/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="https://www.lingscars.com/cookie-policy/">Cookie Policy</a></li>
+            <li><a href="https://www.lingscars.com/terms-conditions/">Terms &amp; Conditions</a></li>
+            <li><a href="https://www.lingscars.com/complaints-policy/">Complaints Policy</a></li>
+            <li><a href="https://www.lingscars.com/initial-disclosure-document/">Initial Disclosure Document</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="copyright-strip">&copy; 2026 LINGsCARS.com Limited. All rights reserved.</div>
+  </footer>
   <script>
     const menuButton = document.querySelector('.mobile-menu-toggle');
     const menuDrawer = document.querySelector('.mobile-drawer');
