@@ -58,7 +58,8 @@
     .deal h2 { position:relative; z-index:3; margin:20px 0 4px; font-size:40px; line-height:1.08; max-width:520px; }
     .model { position:relative; z-index:3; margin:0; color:#d5e8ef; font-size:17px; font-weight:650; }
     .price { position:relative; z-index:3; margin:34px 0 22px; font-size:58px; font-weight:950; letter-spacing:-2px; }
-    .price small { display:inline-block; max-width:100px; font-size:15px; line-height:1.15; letter-spacing:0; }
+    .price small { display:inline-block; max-width:none; white-space:nowrap; font-size:15px; line-height:1.15; letter-spacing:0; }
+    .vat-label { display:inline; }
     .terms { position:relative; z-index:2; display:flex; flex-wrap:wrap; gap:10px; max-width:520px; margin-top:10px; }
     .terms span { padding:10px 14px; border:1px solid rgba(255,255,255,.25); border-radius:10px; background:rgba(255,255,255,.09); font-size:14px; font-weight:720; }
     .search { background:#fff; border-radius:24px; padding:34px; box-shadow:0 20px 50px rgba(22,38,57,.12); }
@@ -81,7 +82,7 @@
     .trust article:nth-child(3) .benefit-marker { background:var(--yellow); }
     .trust strong { display:block; margin-bottom:7px; font-size:18px; }
     .trust p { margin:0; color:#637084; font-size:14px; line-height:1.55; }
-    @media (max-width:900px) { header{grid-template-columns:1fr auto;} nav,.account-link { display:none; } .mobile-menu-toggle{display:block;} .contact-strip { align-items:center; flex-direction:column; text-align:center; padding-top:12px; padding-bottom:12px; } .contact-links { width:100%; align-items:center; justify-content:center; flex-direction:row; flex-wrap:nowrap; gap:12px; font-size:12px; } main{padding:34px 24px 42px;} .hero { grid-template-columns:1fr; } .deal{min-height:610px;padding:32px;} .deal .terms{max-width:100%;} .vehicle-image{bottom:-28px;width:94%;transform:translateX(-45%);} .search{padding:26px;} .form-row{grid-template-columns:1fr;gap:0;} h1{font-size:39px;} .benefits{padding:28px;} .benefits-head h2{white-space:normal;} .trust{grid-template-columns:1fr;gap:22px;} .trust article{padding:0 0 22px;border-right:0!important;border-bottom:1px solid #dce3e9;} .trust article:last-child{padding-bottom:0;border-bottom:0;} }
+    @media (max-width:900px) { header{grid-template-columns:1fr auto;} nav,.account-link { display:none; } .mobile-menu-toggle{display:block;} .contact-strip { align-items:center; flex-direction:column; text-align:center; padding-top:12px; padding-bottom:12px; } .contact-links { width:100%; align-items:center; justify-content:center; flex-direction:row; flex-wrap:nowrap; gap:12px; font-size:12px; } main{padding:34px 24px 42px;} .hero { grid-template-columns:1fr; } .deal{min-height:610px;padding:32px;} .price small{display:block;margin-top:6px;white-space:normal;} .vat-label{display:block;margin-top:2px;} .deal .terms{max-width:100%;} .vehicle-image{bottom:-28px;width:94%;transform:translateX(-45%);} .search{padding:26px;} .form-row{grid-template-columns:1fr;gap:0;} h1{font-size:39px;} .benefits{padding:28px;} .benefits-head h2{white-space:normal;} .trust{grid-template-columns:1fr;gap:22px;} .trust article{padding:0 0 22px;border-right:0!important;border-bottom:1px solid #dce3e9;} .trust article:last-child{padding-bottom:0;border-bottom:0;} }
     @media (max-width:420px) { .contact-links{gap:8px;font-size:11px;} }
   </style>
 </head>
@@ -132,7 +133,7 @@
         <span class="deal-tag">Featured offer</span>
         <h2>Nissan X-Trail</h2>
         <p class="model">1.5 MHEV 163 Acenta Premium 5dr Xtronic</p>
-        <div class="price">£295 <small>a month<br>including Value Added Tax (VAT)</small></div>
+        <div class="price">£295 <small>a month <span class="vat-label">including Value Added Tax (VAT)</span></small></div>
         <div class="terms"><span>36-month contract</span><span>9 months upfront</span><span>8,000 miles a year</span></div>
         <img class="vehicle-image" src="nissan-x-trail-featured-v2.png" alt="Silver Nissan X-Trail shown from the front and side">
       </article>
