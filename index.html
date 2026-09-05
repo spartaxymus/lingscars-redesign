@@ -5,100 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LINGsCARS | Personal and business car leasing</title>
   <meta name="description" content="Search personal and business car lease deals from LINGsCARS.">
-  <style>
-    :root { --ink:#152238; --blue:#006d8f; --pink:#d31286; --yellow:#ffd236; --paper:#fff; --mist:#f4f7fa; }
-    * { box-sizing:border-box; }
-    body { margin:0; color:var(--ink); background:var(--mist); font-family:Arial,sans-serif; }
-    h1, .deal h2, .search h2, .benefits h2 { font-family:"Trebuchet MS",Arial,sans-serif; }
-    .contact-strip { min-height:38px; padding:7px 5vw; display:flex; align-items:center; justify-content:space-between; gap:22px; background:var(--ink); color:#fff; font-size:13px; font-weight:400; }
-    .contact-strip .promo { font-weight:400; color:#fff; }
-    .contact-links { display:flex; align-items:center; flex-wrap:wrap; gap:20px; }
-    .contact-links a { color:#fff; text-decoration:none; transition:color .18s ease; }
-    .contact-links a:last-child { color:#fff; font-weight:400; }
-    .contact-links a:hover, .contact-links a:focus-visible, .contact-links a:active { color:var(--yellow); }
-    .contact-links a:focus-visible { outline:2px solid var(--yellow); outline-offset:3px; border-radius:2px; }
-    header { height:92px; padding:0 5vw; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; background:#fff; border-bottom:1px solid #dce3e9; }
-    .brand { font-weight:950; font-style:italic; font-size:30px; color:var(--blue); letter-spacing:-1.5px; }
-    .brand span { color:var(--pink); }
-    nav { display:flex; align-items:center; justify-content:center; gap:34px; font-size:15px; font-weight:700; }
-    nav a, .account-link { position:relative; display:inline-flex; align-items:center; gap:8px; padding:10px 0; color:var(--ink); text-decoration:none; transition:color .18s ease; }
-    nav svg, .account-link svg { width:18px; height:18px; flex:none; stroke:currentColor; }
-    nav a:after { content:""; position:absolute; left:0; right:0; bottom:3px; height:3px; border-radius:3px; background:var(--pink); transform:scaleX(0); transform-origin:left; transition:transform .18s ease; }
-    nav a:hover, nav a:focus-visible, nav a[aria-current="page"], .account-link:hover, .account-link:focus-visible { color:var(--pink); }
-    nav a:hover:after, nav a:focus-visible:after, nav a[aria-current="page"]:after { transform:scaleX(1); }
-    nav a:focus-visible, .account-link:focus-visible { outline:2px solid var(--pink); outline-offset:5px; border-radius:2px; }
-    .account-link { justify-self:end; font-size:15px; font-weight:800; }
-    .mobile-menu-toggle { display:none; justify-self:end; width:44px; height:44px; border:1px solid #d4dce3; border-radius:11px; background:#fff; color:var(--ink); cursor:pointer; }
-    .mobile-menu-toggle span { display:block; width:20px; height:2px; margin:4px auto; border-radius:2px; background:currentColor; }
-    .mobile-menu-toggle:hover, .mobile-menu-toggle:focus-visible { color:var(--pink); border-color:var(--pink); }
-    .mobile-menu-toggle:focus-visible { outline:3px solid rgba(211,18,134,.18); outline-offset:2px; }
-    .mobile-overlay { position:fixed; z-index:20; inset:0; background:rgba(21,34,56,.42); opacity:0; visibility:hidden; transition:opacity .22s ease,visibility .22s ease; }
-    .mobile-drawer { position:fixed; z-index:21; top:0; right:0; width:min(84vw,340px); height:100vh; padding:24px; background:#fff; box-shadow:-18px 0 48px rgba(21,34,56,.2); transform:translateX(105%); transition:transform .24s ease; }
-    .mobile-drawer.open { transform:translateX(0); }
-    .mobile-overlay.open { opacity:1; visibility:visible; }
-    .drawer-head { display:flex; align-items:center; justify-content:space-between; padding-bottom:20px; border-bottom:1px solid #dce3e9; }
-    .drawer-head strong { font-size:20px; }
-    .drawer-close { width:40px; height:40px; border:0; border-radius:10px; background:var(--mist); color:var(--ink); font-size:27px; line-height:1; cursor:pointer; }
-    .drawer-close:hover, .drawer-close:focus-visible { color:var(--pink); }
-    .drawer-nav { display:grid; gap:4px; margin-top:18px; }
-    .drawer-nav a { display:flex; align-items:center; justify-content:space-between; padding:15px 12px; border-radius:10px; color:var(--ink); text-decoration:none; font-weight:800; }
-    .drawer-nav a:hover, .drawer-nav a:focus-visible, .drawer-nav a[aria-current="page"] { background:#fff1f8; color:var(--pink); }
-    .drawer-nav .drawer-account { margin-top:12px; border-top:1px solid #dce3e9; border-radius:0; padding-top:22px; }
-    body.menu-open { overflow:hidden; }
-    main { max-width:1440px; margin:auto; padding:48px 5vw 52px; }
-    .eyebrow { color:var(--pink); font-weight:850; letter-spacing:.12em; text-transform:uppercase; font-size:13px; }
-    h1 { margin:10px 0 12px; font-size:48px; line-height:1.06; letter-spacing:-1.8px; max-width:740px; }
-    .intro { font-size:18px; line-height:1.55; max-width:670px; color:#536174; margin:0 0 30px; }
-    .hero { display:grid; grid-template-columns:1.25fr .85fr; gap:26px; align-items:stretch; }
-    .hero > *, .form-row > * { min-width:0; }
-    .deal { position:relative; overflow:hidden; min-height:470px; padding:42px; border-radius:24px; background:linear-gradient(130deg,#11223c,#003f59); color:#fff; box-shadow:0 20px 50px rgba(22,38,57,.16); }
-    .deal:after { content:""; position:absolute; z-index:1; width:340px; height:340px; right:-105px; bottom:-150px; border-radius:50%; background:var(--pink); opacity:.92; }
-    .vehicle-image { position:absolute; z-index:2; left:50%; bottom:-34px; width:76%; max-width:650px; object-fit:contain; transform:translateX(-39%); pointer-events:none; }
-    .deal-tag { position:relative; z-index:3; display:inline-block; padding:7px 11px; border-radius:99px; background:var(--yellow); color:#1e2530; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:.08em; }
-    .deal h2 { position:relative; z-index:3; margin:20px 0 4px; font-size:40px; line-height:1.08; max-width:520px; }
-    .model { position:relative; z-index:3; margin:0; color:#d5e8ef; font-size:17px; font-weight:650; }
-    .price { position:relative; z-index:3; margin:34px 0 22px; font-size:58px; font-weight:950; letter-spacing:-2px; }
-    .price small { display:inline-block; max-width:none; white-space:nowrap; font-size:15px; line-height:1.15; letter-spacing:0; }
-    .vat-label { display:inline; }
-    .terms { position:relative; z-index:2; display:flex; flex-wrap:wrap; gap:10px; max-width:520px; margin-top:10px; }
-    .terms span { padding:10px 14px; border:1px solid rgba(255,255,255,.25); border-radius:10px; background:rgba(255,255,255,.09); font-size:14px; font-weight:720; }
-    .search { background:#fff; border-radius:24px; padding:34px; box-shadow:0 20px 50px rgba(22,38,57,.12); }
-    .search h2 { font-size:27px; margin:0 0 6px; }
-    .search > p { margin:0 0 24px; color:#657286; line-height:1.45; }
-    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:end; }
-    label { display:block; margin:16px 0 7px; font-size:13px; font-weight:800; line-height:1.35; }
-    select { width:100%; min-width:0; height:48px; padding:0 15px; border:1px solid #cbd4dc; border-radius:12px; background:#fff; color:#475466; font-size:15px; }
-    select:focus-visible { outline:3px solid rgba(211,18,134,.2); border-color:var(--pink); }
-    .cta { width:100%; margin-top:24px; padding:15px; border:0; border-radius:12px; background:var(--pink); color:#fff; font-size:16px; font-weight:900; }
-    .benefits { margin-top:34px; padding:36px; border-radius:20px; background:#fff; border:1px solid #e1e7ec; }
-    .benefits-head { margin-bottom:24px; }
-    .benefits-head h2 { margin:0; white-space:nowrap; font-size:30px; letter-spacing:-.7px; }
-    .benefits-head p { max-width:680px; margin:8px 0 0; color:#637084; line-height:1.5; }
-    .trust { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; border-top:1px solid #dce3e9; padding-top:24px; }
-    .trust article { padding-right:24px; }
-    .trust article:not(:last-child) { border-right:1px solid #dce3e9; }
-    .benefit-marker { display:block; width:36px; height:4px; margin-bottom:15px; border-radius:4px; background:var(--pink); }
-    .trust article:nth-child(2) .benefit-marker { background:var(--blue); }
-    .trust article:nth-child(3) .benefit-marker { background:var(--yellow); }
-    .trust strong { display:block; margin-bottom:7px; font-size:18px; }
-    .trust p { margin:0; color:#637084; font-size:14px; line-height:1.55; }
-    .site-footer { background:#101d31; color:#dce6ef; border-top:4px solid var(--pink); font-family:Arial,sans-serif; font-size:14px; font-weight:normal; }
-    .footer-content { max-width:1440px; margin:auto; padding:46px 5vw 28px; }
-    .footer-grid { display:grid; grid-template-columns:1.15fr .85fr 1.25fr; gap:56px; }
-    .footer-section { display:block; min-width:0; font-size:14px; font-weight:normal; }
-    .footer-section h2 { margin:0 0 19px; color:#fff; font-family:"Trebuchet MS",Arial,sans-serif; font-size:20px; line-height:1.2; font-weight:700; }
-    .footer-section address { font-style:normal; }
-    .footer-list { display:grid; gap:11px; margin:0; padding:0; list-style:none; }
-    .site-footer .footer-list a { position:static; display:inline; padding:0; color:#c5d1dc; text-decoration:none; font-size:14px; font-weight:normal; line-height:1.5; transition:color .18s ease; }
-    .footer-list a:after { display:none; }
-    .footer-list a:hover, .footer-list a:active { color:var(--yellow); }
-    .footer-list a:focus-visible { color:var(--yellow); outline:2px solid var(--yellow); outline-offset:4px; border-radius:2px; }
-    .footer-hours { color:#9fadc0; font-size:14px; font-weight:normal; }
-    .copyright-strip { padding:13px 5vw; border-top:1px solid rgba(255,255,255,.12); background:#0a1424; color:#9fadc0; text-align:center; font-size:12px; font-weight:normal; }
-    @media (max-width:900px) { header{grid-template-columns:1fr auto;} nav,.account-link { display:none; } .mobile-menu-toggle{display:block;} .contact-strip { align-items:center; flex-direction:column; text-align:center; padding-top:12px; padding-bottom:12px; } .contact-links { width:100%; align-items:center; justify-content:center; flex-direction:row; flex-wrap:nowrap; gap:12px; font-size:12px; } main{padding:34px 24px 42px;} .hero { grid-template-columns:1fr; } .deal{min-height:610px;padding:32px;} .price small{display:block;margin-top:6px;white-space:normal;} .vat-label{display:block;margin-top:2px;} .deal .terms{max-width:100%;} .vehicle-image{bottom:-28px;width:94%;transform:translateX(-45%);} .search{padding:26px;} .form-row{grid-template-columns:1fr;gap:0;} h1{font-size:39px;} .benefits{padding:28px;} .benefits-head h2{white-space:normal;} .trust{grid-template-columns:1fr;gap:22px;} .trust article{padding:0 0 22px;border-right:0!important;border-bottom:1px solid #dce3e9;} .trust article:last-child{padding-bottom:0;border-bottom:0;} .footer-grid{grid-template-columns:1fr 1fr;gap:36px 48px;} .footer-section:first-child{grid-column:1/-1;} }
-    @media (max-width:620px) { .footer-content{padding:38px 24px 26px;} .footer-grid{grid-template-columns:1fr;gap:32px;} .footer-section:first-child{grid-column:auto;} }
-    @media (max-width:420px) { .contact-links{gap:8px;font-size:11px;} }
-  </style>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
   <div class="contact-strip" aria-label="Contact information">
@@ -149,7 +56,7 @@
         <p class="model">1.5 MHEV 163 Acenta Premium 5dr Xtronic</p>
         <div class="price">£295 <small>a month <span class="vat-label">including Value Added Tax (VAT)</span></small></div>
         <div class="terms"><span>36-month contract</span><span>9 months upfront</span><span>8,000 miles a year</span></div>
-        <img class="vehicle-image" src="nissan-x-trail-featured-v2.png" alt="Silver Nissan X-Trail shown from the front and side">
+        <img class="vehicle-image" src="assets/images/nissan-x-trail-featured.png" alt="Silver Nissan X-Trail shown from the front and side">
       </article>
       <form class="search">
         <h2>Find your lease</h2>
@@ -213,26 +120,6 @@
     </div>
     <div class="copyright-strip">&copy; 2026 LINGsCARS.com Limited. All rights reserved.</div>
   </footer>
-  <script>
-    const menuButton = document.querySelector('.mobile-menu-toggle');
-    const menuDrawer = document.querySelector('.mobile-drawer');
-    const menuOverlay = document.querySelector('.mobile-overlay');
-    const closeControls = document.querySelectorAll('[data-menu-close]');
-    const drawerLinks = document.querySelectorAll('.drawer-nav a');
-    function setMenu(open) {
-      menuDrawer.classList.toggle('open', open);
-      menuOverlay.classList.toggle('open', open);
-      document.body.classList.toggle('menu-open', open);
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-      menuDrawer.setAttribute('aria-hidden', String(!open));
-      if (open) menuDrawer.querySelector('.drawer-close').focus();
-      else menuButton.focus();
-    }
-    menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
-    closeControls.forEach(control => control.addEventListener('click', () => setMenu(false)));
-    drawerLinks.forEach(link => link.addEventListener('click', () => setMenu(false)));
-    document.addEventListener('keydown', event => { if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') setMenu(false); });
-  </script>
+  <script src="assets/js/navigation.js"></script>
 </body>
 </html>
